@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[[ `git ls-remote origin | grep gh-pages` ]] && exit 0
+
+TMP="/tmp/$(LC_CTYPE=C tr -dc 0-9 < /dev/urandom | head -c 20 | xargs | cat)"
+rsync -qa .git $TMP
+pushd $TMP
+  git checkout --orphan gh-pages
+  git rm -qrf .
+  git commit -qam "" --allow-empty --allow-empty-message
+  git push origin gh-pages
+popd
+rm -rf $TMP

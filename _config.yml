@@ -1,0 +1,9 @@
+name:        Your New Jekyll Site
+
+baseurl:     /jekyll.workflow
+include:     ['.nojekyll', 'CNAME']
+exclude:     ['Makefile', 'README.md', 'LICENSE', 'Gemfile*', 'script']
+
+pygments:    true
+gems:        ['jekyll-less']
+markdown:    redcarpet

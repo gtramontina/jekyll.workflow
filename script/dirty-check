@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [[ `(git status --porcelain 2> /dev/null) && (git log origin/master..master 2> /dev/null)` ]]; then
+  echo
+  echo "# You have changes that were not pushed to master yet."
+  echo
+  exit -1
+fi

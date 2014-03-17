@@ -1,0 +1,16 @@
+#!/bin/bash
+
+DIST_DIR=$(awk '/destination:/{dist=$2}; END {if (dist) print dist; else print "./_site"}' < _config.yml)
+
+if [[ ! -d $DIST_DIR/.git ]]; then
+  REMOTE_ORIGIN=$(git remote -v | awk '/origin/{print $2}' | sort -u)
+  rm -rf $DIST_DIR
+
+  git clone \
+    --single-branch \
+    --branch=gh-pages \
+    --depth=1 $REMOTE_ORIGIN \
+    $DIST_DIR
+fi
+
+jekyll build
