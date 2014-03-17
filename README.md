@@ -8,7 +8,7 @@ Run this one-liner on the root of yout project:
 ```bash
 curl -L https://raw.github.com/gtramontina/jekyll.workflow/master/install.sh | sh
 ```
-This will copy `Makefile` and the `scripts` directory over to your project so you can start enjoying using it right away.
+This will copy `Makefile` and the `scripts` directory over to your project so you can start using it right away.
 
 ### Main `make` goals
 * `make` or `make install`: checks whether you have a gh-pages branch and create it if you don't. It also runs `bundle install` in order to get any `Gemfile` updates. Feel free to remove this last piece if it does not apply to your scenario.
