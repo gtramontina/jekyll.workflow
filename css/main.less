@@ -1,162 +1,96 @@
-/*****************************************************************************/
-/*
-/* Common
-/*
-/*****************************************************************************/
+@import "reset.css";
+@import "auticons.css";
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400,900);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans+Mono);
 
-/* Global Reset */
-@white: #BADA55;
+@default-spacing: 10px;
+@color-black: #000;
+@color-gray: lighten(@color-black, 50%);
+@color-med-gray: lighten(@color-gray, 38%);
+@color-light-gray: lighten(@color-med-gray, 10%);
+@color-green: #BADA55;
+@color-dark-green: darken(@color-green, 20%);
 
-* {
-  margin: 0;
-  padding: 0;
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
 }
-
-html, body { height: 100%; }
 
 body {
-  background-color: @white;
-  font: 13.34px Helvetica, Arial, sans-serif;
-  font-size: small;
-  text-align: center;
+  font-family: 'Lato';
+  font-weight: 400;
+  font-size: 110%;
+  line-height: 1.3em;
+  padding: 0 10%;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
-
-h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
-
-a         { color: #00a; }
-a:hover   { color: #000; }
-a:visited { color: #a0a; }
-
-/*****************************************************************************/
-/*
-/* Home
-/*
-/*****************************************************************************/
-.posts {
-  list-style-type: none;
-  margin-bottom: 2em;
+h1, h2, h3 {
+  font-weight: 100;
+  padding: @default-spacing*2 0;
 }
 
-.posts li {
-  line-height: 1.75em;
+p, li {
+  font-weight: 100;
+  margin: @default-spacing*2 0;
 }
 
-.posts span {
-  color: #aaa;
-  font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
+li:before {
+  content: '⇝';
+  margin-right: .5em;
 }
 
-/*****************************************************************************/
-/*
-/* Site
-/*
-/*****************************************************************************/
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; }
+h3 { font-size: 2em; }
 
-.site {
-  font-size: 115%;
-  text-align: justify;
-  width: 42em;
-  margin: 3em auto 2em;
-  line-height: 1.5em;
+code, pre {
+  font-family: 'Droid Sans Mono';
+  font-size: 0.7em;
+  padding: @default-spacing/4 @default-spacing/2;
+  background-color: @color-light-gray;
+  border: 1px dotted @color-med-gray;
+  border-radius: 2px;
+  color: @color-gray;
+  &:hover { border-style: solid; }
 }
 
-.header a {
-  font-weight: bold;
+pre {
+  padding: @default-spacing;
+  overflow: scroll;
+}
+
+body > header {
+  border-bottom: 1px solid @color-gray;
+  padding: @default-spacing;
+  text-align: right;
+  & > p { color: @color-gray; }
+  & > img {
+    float:left;
+    max-width: 200px;
+    margin-top: @default-spacing;
+  }
+}
+
+body > footer {
+  border-top: 1px solid @color-gray;
+  padding: @default-spacing;
+}
+
+main {
+  padding: @default-spacing;
+}
+
+a {
   text-decoration: none;
-}
-
-.title {
-  display: inline-block;
-  margin-bottom: 2em;
-}
-
-.title a {
-  color: #a00;
-}
-
-.title a:hover {
-  color: #000;
-}
-
-.header a.extra {
-  color: #aaa;
-  margin-left: 1em;
-}
-
-.header a.extra:hover {
-  color: #000;
-}
-
-.meta {
-  color: #aaa;
-}
-
-.footer {
-  font-size: 80%;
-  color: #666;
-  border-top: 4px solid #eee;
-  margin-top: 2em;
-  overflow: hidden;
-}
-
-.footer .contact {
-  float: left;
-  margin-right: 3em;
-}
-
-.footer .contact a {
-  color: #8085C1;
-}
-
-.footer .rss {
-  margin-top: 1.1em;
-  margin-right: -.2em;
-  float: right;
-}
-
-.footer .rss img {
-  border: 0;
-}
-
-/*****************************************************************************/
-/*
-/* Posts
-/*
-/*****************************************************************************/
-
-/* standard */
-.post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .4em;
-}
-
-.post ul, .post ol {
-  margin-left: 1.35em;
-}
-
-.post code {
-  border: 1px solid #ddd;
-  background-color: #eef;
-  padding: 0 .2em;
-}
-
-.post pre code {
-  border: none;
-}
-
-/* terminal */
-.post pre.terminal {
-  border: 1px solid #000;
-  background-color: #333;
-  color: @white;
-}
-
-.post pre.terminal code {
-  background-color: #333;
+  color: @color-green;
+  transition: color .2s;
+  &:visited {
+    color: @color-green;
+  }
+  &:hover {
+    color: @color-dark-green;
+  }
 }

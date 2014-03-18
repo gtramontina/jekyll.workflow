@@ -1,13 +1,20 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: jekyll.workflow
 ---
 
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
+<article>
+  <p>A simple combination of a few bash scripts and a <code>Makefile</code> to support you jekyll develpment and deployment to gh-pages.</p>
+  <h3>Getting started</h3>
+  <p>Run this one-liner on the root of yout project:</p>
+  <pre>curl -L https://raw.github.com/gtramontina/jekyll.workflow/master/install.sh | sh</pre>
+  <p>This will copy <code>Makefile</code> and the <code>scripts</code> directory over to your project so you can start using it right away.</p>
+  <h3>Main <code>make</code> goals</h3>
+  <ul>
+    <li><code>make</code> or <code>make install</code>: checks whether you have a gh-pages branch and create it if you don't. It also runs <code>bundle install</code> in order to get any <code>Gemfile</code> updates. Feel free to remove this last piece if it does not apply to your scenario.</li>
+    <li><code>make dist</code>: clones the gh-pages branch into your project destination directory (it'll read from <code>_config.yml</code> if you have it specified there) and runs <code>jekyll build</code>.</li>
+    <li><code>make serve</code>: starts jekyll's server in watch mode.</li>
+    <li><code>make deploy</code>: this is where the crazyness happens. It runs <code>dist</code> and then creates a release by pushing the changes to <code>origin/gh-pages</code></li>
   </ul>
-</div>
+  <p>Enjoy!</p>
+</article>
