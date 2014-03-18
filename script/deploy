@@ -7,7 +7,7 @@ pushd $DIST_DIR
   git add . -A
   git commit -m "Deployed from master: $MASTER_HEAD_SHA"
   GH_PAGES_HEAD_SHA=$(git rev-parse HEAD)
-  TAG_NUMBER=$(git tag | awk -F  "#" '{x=$2>x?$2:x}END{print x}' x=1)
+  TAG_NUMBER=$(git tag | awk -F  "#" '{x=$2>x?$2:x}END{print x+1}' x=1)
   git tag -a "Deploy#$TAG_NUMBER" -m "Deployed from master $MASTER_HEAD_SHA to gh-pages $GH_PAGES_HEAD_SHA"
   git push origin gh-pages --force
   git push origin --tags --force
