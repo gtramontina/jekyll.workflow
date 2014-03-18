@@ -3,48 +3,37 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Your New Jekyll Site</title>
+        <title>jekyll.workflow</title>
         <meta name="viewport" content="width=device-width">
-
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/jekyll.workflow/css/syntax.css">
-
-        <!-- Custom CSS -->
         <link rel="stylesheet" href="/jekyll.workflow/css/main.css">
-
     </head>
+
     <body>
-
-        <div class="site">
-          <div class="header">
-            <h1 class="title"><a href="/jekyll.workflow">Your New Jekyll Site</a></h1>
-            <a class="extra" href="/jekyll.workflow">home</a>
-          </div>
-
-          <div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    
+      <header>
+        <img src="/jekyll.workflow/images/logo.png" alt="jekyll.workflow">
+        <h1>jekyll.workflow</h1>
+        <p>master ⇝ gh-pages</p>
+      </header>
+      <main>
+        <article>
+  <p>A simple combination of a few bash scripts and a <code>Makefile</code> to support you jekyll develpment and deployment to gh-pages.</p>
+  <h3>Getting started</h3>
+  <p>Run this one-liner on the root of yout project:</p>
+  <pre>curl -L https://raw.github.com/gtramontina/jekyll.workflow/master/install.sh | sh</pre>
+  <p>This will copy <code>Makefile</code> and the <code>scripts</code> directory over to your project so you can start using it right away.</p>
+  <h3>Main <code>make</code> goals</h3>
+  <ul>
+    <li><code>make</code> or <code>make install</code>: checks whether you have a gh-pages branch and create it if you don't. It also runs <code>bundle install</code> in order to get any <code>Gemfile</code> updates. Feel free to remove this last piece if it does not apply to your scenario.</li>
+    <li><code>make dist</code>: clones the gh-pages branch into your project destination directory (it'll read from <code>_config.yml</code> if you have it specified there) and runs <code>jekyll build</code>.</li>
+    <li><code>make serve</code>: starts jekyll's server in watch mode.</li>
+    <li><code>make deploy</code>: this is where the crazyness happens. It runs <code>dist</code> and then creates a release by pushing the changes to <code>origin/gh-pages</code></li>
   </ul>
-</div>
-
-
-          <div class="footer">
-            <div class="contact">
-              <p>
-                My Name<br />
-                What You Are<br />
-                you@example.com
-              </p>
-            </div>
-            <div class="contact">
-              <p>
-                <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-                <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-              </p>
-            </div>
-          </div>
-        </div>
+  <p>Enjoy!</p>
+</article>
+      </main>
+      <footer>
+        <a href="http://github.com/gtramontina/jekyll.workflow">gtramontina/jekyll.workflow</a>
+      </footer>
 
     </body>
 </html>
